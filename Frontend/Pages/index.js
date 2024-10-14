@@ -5,7 +5,11 @@ const router = createRouter({
     history : createWebHashHistory(),
     routes : [
         {path : "/login", component : loginAdmin},
-        {path : "/", component : ()=>import ("../src/admin/dashtboard.vue")}
+        {path : "/", component : ()=>import ("../src/admin/dashtboard.vue"), children :
+            [
+                {path : '/', component : ()=> import("../src/Admin/Home.vue")}
+            ]
+        }
     ]
 });
 

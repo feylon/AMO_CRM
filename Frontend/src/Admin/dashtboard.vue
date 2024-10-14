@@ -1,6 +1,6 @@
 <template>
     <div class="flex   w-max-[100px]">
-        <div class="min-h-[100vh]  h-[100%]  pt-10 w-[60px] bg-[#06121b]">
+        <div class="min-h-[100vh]  h-[100%]  pt-10 w-[60px] bg-slate-950">
             
             <div class="select-none flex flex-col gap-3 overflow-hidden max-h-full">
                 <div v-for="i in 4" class="flex flex-col w-[60px]">
@@ -23,14 +23,14 @@
         
         
         <div class="w-full  min-h-[100vh]">
-            <div class="w-full border-b-[3px] border-[#16354e]  h-[40px]  bg-[#16354e] flex items-center  justify-between text-[13px]">
+            <div class="w-full border-b-[3px] border-[#16354e]  h-[40px]  bg-slate-950 flex items-center  justify-between text-[13px]">
             
 <div class="text-white">
 
   <n-breadcrumb>
     <n-breadcrumb-item v-for="i in 3" class="ps-1">
       <font-awesome-icon class="text-white" icon="fa-solid fa-house" />
-      <span class="text-white">/Home</span>
+      <span class="text-white ms-2">Home</span>
     </n-breadcrumb-item>
     
   </n-breadcrumb>
@@ -39,28 +39,37 @@
 
 
             
-            <div class="border-s-[#06121b] hover:bg-[#06121b] border-solid  border-s-[1px]  h-full pe-[40px] cursor-pointer flex items-center  ps-[20px]">
+            <div class="flex items-center gap-4">
+              <span class="text-white">
+                <n-badge value="10" :max="15">
+                  <font-awesome-icon class="text-[25px] cursor-pointer" :icon="['fas', 'bell']" />
+
+    </n-badge>
+              </span>
+              <div class="border-s-[#06121b] hover:bg-[#06121b] border-solid  border-s-[1px]  h-full pe-[40px] cursor-pointer flex items-center  ps-[20px]">
+                
                 <n-dropdown trigger="hover" :options="options" @select="handleSelect">
-                    <div class="flex items-center justify-center">
-        <div> <img src="../../public/55dd738175b485fd26a010ac69bce4c7.png" class="w-[40px] rounded-[30%]" alt="">
-    </div>
-
-    <div class="flex flex-col justify-center ps-[10px]">
-        <span class="text-[white] text-center">Ergashev Jamshid</span>
-        <span class="text-[white] text-center text-[10px]">Admin</span>
-
-    </div>
-    </div>
-</n-dropdown>
+                      <div class="flex items-center justify-center">
+          <div> <img src="../../public/55dd738175b485fd26a010ac69bce4c7.png" class="w-[40px] rounded-[30%]" alt="">
+      </div>
+  
+      <div class="flex flex-col justify-center ps-[10px]">
+          <span class="text-[white] text-center">Ergashev Jamshid</span>
+          <span class="text-[white] text-center text-[10px]">Admin</span>
+  
+      </div>
+      </div>
+  </n-dropdown>
+              </div>
+  
             </div>
-
             </div>
 
 
             <div class="h-[calc(100vh-60px)] p-3 overflow-y-auto scroll">
-                <font-awesome-icon :icon="['fas', 'magnifying-glass']" /><font-awesome-icon :icon="['fas', 'bell']" />
-                <font-awesome-icon icon="fa-solid fa-house" />
-                <i class="fas fa-house"></i>
+                <router-view>
+
+                </router-view>
                
             </div>
         </div>
