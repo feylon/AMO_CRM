@@ -23,7 +23,7 @@
         
         
         <div class="w-full  min-h-[100vh]">
-            <div class="w-full border-b-[3px] border-[#16354e]  h-[40px]  bg-slate-950 flex items-center  justify-between text-[13px]">
+            <div class="w-full border-b-[3px] border-slate-950  h-[40px]  bg-slate-950 flex items-center  justify-between text-[13px]">
             
 <div class="text-white">
 
