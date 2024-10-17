@@ -7,7 +7,9 @@ const router = createRouter({
         {path : "/login", component : loginAdmin},
         {path : "/", component : ()=>import ("../src/admin/dashtboard.vue"), children :
             [
-                {path : '/', component : ()=> import("../src/Admin/Home.vue")}
+                {path : '/', component : ()=> import("../src/Admin/Home.vue")},
+                {path : '/profile', component : ()=> import("../src/Admin/profile.vue")}
+
             ]
         }
     ]

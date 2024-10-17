@@ -159,7 +159,7 @@ let options = [
 
 let router_links = ref([
   {
-    url : "/login",
+    url : "/profile",
     header : "Profil",
     pics : "[removal.ai]_8a14b6f8-3e24-4bba-ab85-4f830bae2b28-avatar-user-profile-male-logo-profile-icon.png"
   },
