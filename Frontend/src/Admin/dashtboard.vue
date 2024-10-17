@@ -3,14 +3,14 @@
         <div class="min-h-[100vh]  h-[100%]  pt-10 w-[60px] bg-slate-950">
             
             <div class="select-none flex flex-col gap-3 overflow-hidden max-h-full">
-                <div v-for="i in 4" class="flex flex-col w-[60px]">
+                
+              <router-link :to="i.url" v-for="(i, j) in router_links" class="flex flex-col w-[60px]" :key="j">
                 <div class="items-center rounded-md cursor-pointer transition-all  flex-col flex justify-center w-full h-[80px] bg-[#41505c] hover:bg-[#637788]">
-<img class="w-[50px] h-[50px] " src="../../public/[removal.ai]_8a14b6f8-3e24-4bba-ab85-4f830bae2b28-avatar-user-profile-male-logo-profile-icon.png" alt="profile">
-    <div class="text-[11px] mt-1     text-white">Akkount</div>
+<img class="w-[50px] h-[50px] " :src="i.pics" alt="profile">
+    <div class="text-[11px] mt-1     text-white">{{i.header}}</div>
 </div>
-            </div>
-            
-            </div>
+            </router-link>
+</div>
 
             
       
@@ -50,7 +50,7 @@
                 
                 <n-dropdown trigger="hover" :options="options" @select="handleSelect">
                       <div class="flex items-center justify-center">
-          <div> <img src="../../public/55dd738175b485fd26a010ac69bce4c7.png" class="w-[40px] rounded-[30%]" alt="">
+          <div> <img src="/55dd738175b485fd26a010ac69bce4c7.png" class="w-[40px] rounded-[30%]" alt="">
       </div>
   
       <div class="flex flex-col justify-center ps-[10px]">
@@ -82,7 +82,7 @@ import { NAvatar, NText, useMessage } from "naive-ui";
 import { defineComponent, h } from "vue";
 import profile from "../components/profile.vue"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
+import { ref } from "vue";
 
 const message = useMessage();
 
@@ -96,7 +96,7 @@ function renderCustomHeader() {
       h(NAvatar, {
         round: true,
         style: "margin-right: 12px; ",
-        src: "../../public/55dd738175b485fd26a010ac69bce4c7.png"
+        src: "/55dd738175b485fd26a010ac69bce4c7.png"
       }),
       h("div", null, [
         h("div", {class: 'font-bold'}, null, [
@@ -154,6 +154,37 @@ let options = [
       function  handleSelect(key) {
         message.info(String(key));
       }
+
+
+
+let router_links = ref([
+  {
+    url : "/login",
+    header : "Profil",
+    pics : "[removal.ai]_8a14b6f8-3e24-4bba-ab85-4f830bae2b28-avatar-user-profile-male-logo-profile-icon.png"
+  },
+  {
+    url : "/",
+    header : "Statistika",
+    pics : "/statics.png"
+  },{
+    url : "/",
+    header : "Bitimlar",
+    pics : "/Emoji_u1f4b2.svg.png"
+  },{
+    url : "/",
+    header : "Vazifalar",
+    pics : "/listbox.png"
+  },{
+    url : "/",
+    header : "Xabarlar",
+    pics : "/main.png"
+  },{
+    url : "/",
+    header : "Sozlamalar",
+    pics : "/Settings.png"
+  },
+])      
 </script>
 
 <style scoped>
