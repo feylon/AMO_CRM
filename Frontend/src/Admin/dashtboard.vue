@@ -40,7 +40,7 @@
 
             
             <div class="flex items-center gap-4">
-              <span class="text-white">
+              <span class="text-white mt-2">
                 <n-badge value="10" :max="15">
                   <font-awesome-icon class="text-[25px] cursor-pointer" :icon="['fas', 'bell']" />
 
@@ -158,11 +158,7 @@ let options = [
 
 
 let router_links = ref([
-  {
-    url : "/profile",
-    header : "Profil",
-    pics : "[removal.ai]_8a14b6f8-3e24-4bba-ab85-4f830bae2b28-avatar-user-profile-male-logo-profile-icon.png"
-  },
+  
   {
     url : "/",
     header : "Statistika",
@@ -183,7 +179,11 @@ let router_links = ref([
     url : "/",
     header : "Sozlamalar",
     pics : "/Settings.png"
-  },
+  },{
+    url : "/profile",
+    header : "Profil",
+    pics : "[removal.ai]_8a14b6f8-3e24-4bba-ab85-4f830bae2b28-avatar-user-profile-male-logo-profile-icon.png"
+  }
 ])      
 </script>
 
