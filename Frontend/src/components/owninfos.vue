@@ -2,7 +2,7 @@
 
 
 
-<div class="w-[650px] p-4">
+<div class=" p-4">
 <div class="w-full flex gap-3 justify-between flex-wrap">
    
     <div  class="flex items-center gap-4">
@@ -91,7 +91,7 @@
 </div>
 
 
-<div class="w-full flex justify-end pe-10">
+<div class="w-full  mt-3 flex justify-end ">
     <button
 					class="border border-slate-950 flex gap-1 items-center bg-slate-950 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-[#2b2638] focus:outline-none focus:shadow-outline">
 				    <font-awesome-icon :icon="['fas', 'check']" />
