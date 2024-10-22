@@ -94,7 +94,7 @@
 <div class="w-full  mt-3 flex justify-end ">
     <button
 					class="border border-slate-950 flex gap-1 items-center bg-slate-950 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-[#2b2638] focus:outline-none focus:shadow-outline">
-				    <font-awesome-icon :icon="['fas', 'check']" />
+				    <font-awesome-icon :icon="['fas', 'floppy-disk']" />
 	Saqlash
 				</button>
 </div>

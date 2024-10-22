@@ -79,7 +79,7 @@
 
 <script setup>
 import { NAvatar, NText, useMessage } from "naive-ui";
-import { defineComponent, h } from "vue";
+import {  h } from "vue";
 import profile from "../components/profile.vue"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { ref } from "vue";
@@ -176,7 +176,7 @@ let router_links = ref([
     header : "Xabarlar",
     pics : "/main.png"
   },{
-    url : "/",
+    url : "/settings",
     header : "Sozlamalar",
     pics : "/Settings.png"
   },{
@@ -184,7 +184,10 @@ let router_links = ref([
     header : "Profil",
     pics : "[removal.ai]_8a14b6f8-3e24-4bba-ab85-4f830bae2b28-avatar-user-profile-male-logo-profile-icon.png"
   }
-])      
+]);
+(()=>{
+  console.log(window.location.href.replace(`${window.location.origin}/#/`, ''))
+})      ()
 </script>
 
 <style scoped>

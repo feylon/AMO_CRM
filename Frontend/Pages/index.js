@@ -8,8 +8,8 @@ const router = createRouter({
         {path : "/", component : ()=>import ("../src/admin/dashtboard.vue"), children :
             [
                 {path : '/', component : ()=> import("../src/Admin/Home.vue")},
-                {path : '/profile', component : ()=> import("../src/Admin/profile.vue")}
-
+                {path : '/profile', component : ()=> import("../src/Admin/profile.vue")},
+                {path : '/settings', component : ()=>import("../src/Admin/Settings.vue")}
             ]
         }
     ]
