@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCoffee, faMagnifyingGlass, faBell  } from '@fortawesome/free-solid-svg-icons'
 import { faHouse, faUser, faFloppyDisk  } from '@fortawesome/free-solid-svg-icons'; // Import specific icon
 import { faTelegram } from '@fortawesome/free-brands-svg-icons'
-import { faCheck,   } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faLock, faUnlock, faPen } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -19,4 +19,7 @@ library.add(faUser);
 library.add(faTelegram );
 library.add(faCheck);
 library.add(faFloppyDisk);
+library.add(faLock );
+library.add(faUnlock );
+library.add(faPen)
 export default FontAwesomeIcon;

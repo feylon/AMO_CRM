@@ -1,5 +1,6 @@
 <template>
-    <div class="w-full h-[40px] items-center border-b-[1px] flex border-gray-300 border-t-[0px] justify-between">
+    <div class="flex flex-col w-full">
+        <div class="w-full ps-[61px] h-[40px] items-center border-b-[1px] flex border-gray-300 border-t-[0px] justify-between">
         <div>
         <div class="flex items-center">
             <input type="email" id="input-9" class="w-full h-10 px-3 text-sm text-gray-700 border border-r-0 rounded-r-none border-slate-850 focus:outline-none rounded shadow-sm" placeholder="Jamshid"/>
@@ -18,11 +19,62 @@
 	+
 				</button>
     </div>
+    <n-table :bordered="false" :single-line="false">
+    <thead class="">
+      <tr>
+        <th>№</th>
+        <th>
+            <div class="w-[85px] justify-center flex text-center">F.I</div>
+        </th>
+        <th class="justify-center flex">Login</th>
+        <th>So'ngi faollik</th>
+        <!-- <th></th> -->
+        <th>Aktiv</th>
+        <th>Info</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+      <tr v-for ="(i, j) in 8">
+        <td>{{++j}}</td>
+        <td>Ergashev Jamshid</td>
+        <td>    jamshid14092002</td>
+        <td>22.02.2022 15:51:54</td>
+        <td>
+            <n-switch v-model:value="check">
+      <template #checked>
+        <font-awesome-icon :icon="['fas', 'unlock']" />
+        <span class="ms-1">Ochiq</span>
+      </template>
+      <template #unchecked>
+        <font-awesome-icon :icon="['fas', 'lock']" />
+         <span class="ms-1">Blok</span>
+      </template>
+    </n-switch>
+        </td>
+        <td class="flex justify-center">
+            <button class="h-10 px-4 text-sm bg-slate-950 border border-l-0 border-slate-850 rounded shadow-sm text-blue-50 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:outline-none">
+                <font-awesome-icon :icon="['fas', 'pen']" />
 
+            </button>
+         </td>
+      
+    </tr>
+      
+    </tbody>
+</n-table>
+<div class="w-full justify-center flex mt-3">
+    <n-pagination v-model:page="page" :page-count="100" />
+
+</div>
+    </div>
+    
 </template>
 
 <script setup>
-
+import { ref } from 'vue';
+const check = ref(false);
+const page = ref(1)
 </script>
 
 <style lang="scss" scoped>
