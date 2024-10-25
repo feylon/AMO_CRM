@@ -7,14 +7,15 @@
                 </div>
             </div>
         </n-card>
-        <component/>
+        <component />
+        
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import component from '../components/component.vue';
-
+let itr = ref(0);
 
 const items = ref([
     {

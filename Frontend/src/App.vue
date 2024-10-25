@@ -1,9 +1,11 @@
 <template>
   <div>
-    <n-message-provider>
-      <router-view></router-view>
-  
-</n-message-provider>
+    <n-modal-provider>
+      <n-message-provider>
+        <router-view></router-view>
+        
+      </n-message-provider>
+    </n-modal-provider>
   </div>
 </template>
 
