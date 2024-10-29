@@ -96,9 +96,7 @@
           <label  class="font-bold">Familiyasi</label>
           <label  class="font-bold mt-1">Ismi</label>
           <label  class="font-bold mt-1">Tug'ilgan kuni</label>
-          <label  class="font-bold mt-1">Login</label>
-          <label  class="font-bold mt-1">Parol</label>
-          <label  class="font-bold">Parol (Qayta)</label>
+          
         </div>
 
         <div class="flex flex-col gap-2">
@@ -108,29 +106,41 @@
             <n-date-picker v-model:value="timestamp" type="date" />
 
           </div>
-<div class="mt-3">          <n-input></n-input>
-</div>
-          <n-input></n-input>
-          <n-input></n-input>
 
+      
         </div>
 
       </div>
       <div class="w-[49%] flex gap-3">
         <div class="flex flex-col gap-4">
-          <label  class="font-bold">Familiyasi</label>
-          <label  class="font-bold mt-1">Ismi</label>
+          <label  class="font-bold">Aktivligi</label>
           <label  class="font-bold mt-1">Login</label>
           <label  class="font-bold mt-1">Parol</label>
           <label  class="font-bold">Parol (Qayta)</label>
         </div>
 
         <div class="flex flex-col gap-2">
-          <n-input></n-input>
-          <n-input></n-input>
-          <n-input></n-input>
-          <n-input></n-input>
-          <n-input></n-input>
+          <n-switch v-model:value="value">
+      <template #checked>
+        Aktiv
+      </template>
+      <template #unchecked>
+        Aktiv emas
+      </template>
+    </n-switch>
+    <div class="mt-1">
+  <n-input placeholder="Login"></n-input>
+
+</div>
+<div class="mt-3">          <n-input   type="password"
+      show-password-on="mousedown"
+      placeholder="Parol"
+      :maxlength="25"></n-input>
+</div>
+<n-input   type="password"
+      show-password-on="mousedown"
+      placeholder="Parol qayta"
+      :maxlength="25"></n-input>
 
         </div>
 
@@ -138,7 +148,14 @@
 
     </div>
     <template #footer>
-      Footer
+      <div class="w-full flex justify-end">
+        <button
+          @click="showmodal = true"
+					class="border border-slate-950 flex gap-1 items-center bg-slate-950 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-[#2b2638] focus:outline-none focus:shadow-outline">
+				   
+	Qo'shish
+				</button>
+      </div>
     </template>
   </n-modal>
 </template>
