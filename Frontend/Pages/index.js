@@ -19,7 +19,7 @@ const router = createRouter({
                     children : [
                         {path:"/settings/admins", component:()=>import("../src/components/component.vue")},
                         {path:"/settings/chats", component:()=>import("../src/components/settingschats.vue")},
-                        {path:"/settings/", component:()=>import("../src/components/Allsettings.vue")},
+                        {path:"/settings/allsettings", component:()=>import("../src/components/Allsettings.vue")},
                         {path:"/settings/payments", component:()=>import("../src/components/payments.vue")},
 
                                ]

@@ -1,6 +1,6 @@
 <template>
     <Chart
-       class="bg-[0b0d18] inline-block p-5"
+       class="bg-[0b0d18] inline-block hidden p-5"
       :size="{ width: 900, height: 420 }"
       :data="data"
       :margin="margin"

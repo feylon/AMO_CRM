@@ -176,7 +176,7 @@ let router_links = ref([
     header : "Xabarlar",
     pics : "/main.png"
   },{
-    url : "/settings",
+    url : "/settings/allsettings",
     header : "Sozlamalar",
     pics : "/Settings.png"
   },{

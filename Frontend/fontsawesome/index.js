@@ -5,6 +5,7 @@ import { faCoffee, faMagnifyingGlass, faBell  } from '@fortawesome/free-solid-sv
 import { faHouse, faUser, faFloppyDisk  } from '@fortawesome/free-solid-svg-icons'; // Import specific icon
 import { faTelegram } from '@fortawesome/free-brands-svg-icons'
 import { faCheck, faLock, faUnlock, faPen } from '@fortawesome/free-solid-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'; // Solid icons
 
 
 
@@ -22,4 +23,5 @@ library.add(faFloppyDisk);
 library.add(faLock );
 library.add(faUnlock );
 library.add(faPen)
+library.add(fas)
 export default FontAwesomeIcon;
