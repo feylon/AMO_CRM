@@ -8,12 +8,11 @@ const router = Router();
 
 router.get("/", checktoken,  async function(req, res){
    try {
-      console.log(a)
+      
      let id = getid(req, res);
     
 
     const data = await pool.query(`SELECT 
-        admin.id as admin_id, 
         admin.login as admin_login,
         admin.firstname as admin_firstname,
         admin.lastname as admin_lastname,
@@ -28,7 +27,6 @@ router.get("/", checktoken,  async function(req, res){
         inner join viloyat on admin.viloyat_id = viloyat.id
         inner join tuman on admin.tuman_id = tuman.id
         where admin.id = $1;`,[id]);
-        console.log(data.rows[0]);
         res.send(data.rows[0]);;
         return
         

@@ -259,7 +259,7 @@ CREATE TABLE admin (
     profil_url varchar(500),
 
     state boolean DEFAULT true,
-    created_at timestamp DEFAULT current_timestamp,  -- Corrected this line
+    created_at timestamp DEFAULT current_timestamp,  
     active boolean DEFAULT true,
     struct boolean DEFAULT true,
     lastseen timestamp
