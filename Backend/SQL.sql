@@ -244,8 +244,8 @@ INSERT INTO tuman (id, viloyat_id, name_uz, name_oz, name_ru) VALUES
 -- Admin
 CREATE TABLE admin (
     id bigserial PRIMARY KEY NOT NULL UNIQUE,
-    login varchar(500) NOT NULL UNIQUE,
-    email varchar(500) NOT NULL UNIQUE,
+    login varchar(500) NOT NULL,
+    email varchar(500) NOT NULL,
     password varchar(500) NOT NULL,
 
     firstname varchar(500),
@@ -264,6 +264,9 @@ CREATE TABLE admin (
     struct boolean DEFAULT true,
     lastseen timestamp
 );
+CREATE UNIQUE INDEX unique_login_active ON admin(login) WHERE (state = true);
+CREATE UNIQUE INDEX unique_email_active ON admin(email) WHERE (state = true);
+
 
 -- Insert first admin
 insert into admin (login, email, password) values 

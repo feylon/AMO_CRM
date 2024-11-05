@@ -27,15 +27,14 @@ router.post("/", checktoken, async function (req, res, next) {
   }
 });
 export default router;
-
 /**
  * @swagger
  * /admin/hasadmin:
  *   post:
- *     summary: Check if an admin login exists
- *     description: Endpoint to check if a given admin login exists in the database.
+ *     summary: Admin bor yo'qligini tekshirish
+ *     description: Berilgan admin loginining ma'lumotlar bazasida mavjudligini tekshirish uchun endpoint.
  *     security:
- *       - bearerAuth: [] # Assuming you are using Bearer Token authentication
+ *       - bearerAuth: [] # Agar siz Bearer Token autentifikatsiyasidan foydalanayotgan bo'lsangiz
  *     requestBody:
  *       required: true
  *       content:
@@ -45,11 +44,11 @@ export default router;
  *             properties:
  *               login:
  *                 type: string
- *                 description: The login name to check for existence.
+ *                 description: Mavjudligini tekshirish uchun login nomi.
  *                 example: "admin123"
  *     responses:
  *       200:
- *         description: Successful operation
+ *         description: Muvaffaqiyatli bajarilgan operatsiya
  *         content:
  *           application/json:
  *             schema:
@@ -57,10 +56,10 @@ export default router;
  *               properties:
  *                 hasadmin:
  *                   type: boolean
- *                   description: Indicates if the admin login exists.
+ *                   description: Admin loginining mavjudligini bildiradi.
  *                   example: true
  *       400:
- *         description: Validation error
+ *         description: Tekshirish xatosi
  *         content:
  *           application/json:
  *             schema:
@@ -68,10 +67,10 @@ export default router;
  *               properties:
  *                 error:
  *                   type: string
- *                   description: Validation error message.
- *                   example: "login is required"
+ *                   description: Tekshirish xatosi xabari.
+ *                   example: "login kiritilishi shart"
  *       500:
- *         description: Server error
+ *         description: Server xatosi
  *         content:
  *           application/json:
  *             schema:
@@ -79,6 +78,6 @@ export default router;
  *               properties:
  *                 error:
  *                   type: string
- *                   description: Error message indicating a server issue.
- *                   example: "Server error"
+ *                   description: Server muammosini bildiruvchi xato xabari.
+ *                   example: "Serverda xato"
  */

@@ -5,7 +5,6 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import swaggerUi  from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
-import {hashpassword} from "./functions/bcrypt.js"
 
 
 
@@ -47,9 +46,9 @@ const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "My API",
+      title: "AMOCRM",
       version: "1.0.0",
-      description: "My API Information",
+      description: "AMOCRM uchun swagger",
     },
     servers: [
       {
@@ -74,7 +73,7 @@ const swaggerOptions = {
   apis: ["./Routers/admin/login.js",
         "./Routers/admin/CRUD Admin/add.js",
         "./Routers/admin/CRUD Admin/checker.js",
-        
+        "./Routers/admin/CRUD Admin/deleteadmin.js"
   ],
 };
 
