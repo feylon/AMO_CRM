@@ -48,53 +48,27 @@ router.post("/", async function (req, res, next ) {
 });
 
 export default router;
-
-
-/**
- * @swagger
- * components:
- *   securitySchemes:
- *     bearerAuth:
- *       type: http
- *       scheme: bearer
- *       bearerFormat: JWT
- *   schemas:
- *     AdminLogin:
- *       type: object
- *       required:
- *         - login
- *         - password
- *       properties:
- *         login:
- *           type: string
- *           description: The admin's login username
- *           minLength: 3
- *           maxLength: 15
- *         password:
- *           type: string
- *           description: The admin's login password
- *           minLength: 3
- *           maxLength: 25
- *       example:
- *         login: admin123
- *         password: passw0rd123
- */
-
 /**
  * @swagger
  * /admin/login:
  *   post:
- *     summary: Admin login
- *     tags: [Admin]
+ *     summary: Tizimga kirish uchun 
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/AdminLogin'
+ *             type: object
+ *             properties:
+ *               login:
+ *                 type: string
+ *                 example: "jamshid14092002"
+ *               password:
+ *                 type: string
+ *                 example: "!Jamshid14092002"
  *     responses:
  *       200:
- *         description: Admin successfully logged in
+ *         description: Successfully logged in and token returned
  *         content:
  *           application/json:
  *             schema:
@@ -102,26 +76,7 @@ export default router;
  *               properties:
  *                 token:
  *                   type: string
- *                   description: JWT token for the authenticated session
- *       400:
- *         description: Invalid login credentials
- *       500:
- *         description: Internal server error
- */
-
-/**
- * @swagger
- * /admin/protected:
- *   get:
- *     summary: A protected route
- *     tags: [Admin]
- *     security:
- *       - bearerAuth: []    # Requires Bearer Token authentication
- *     responses:
- *       200:
- *         description: Access granted
+ *                   example: "Token abc12345..."
  *       401:
- *         description: Unauthorized (Missing or invalid token)
- *       500:
- *         description: Internal server error
+ *         description: Invalid credentials
  */

@@ -29,7 +29,7 @@ router.post("/", [limiter, checktoken], async function (req, res, next) {
     try {
       password = await hashpassword(password);
       login = login.toLowerCase();
-      email = email.toLowerCase();``
+      email = email.toLowerCase();
       let data = await pool.query(`insert into admin (login, email, password, firstname, lastname, viloyat_id, tuman_id, active,  struct) 
             values 
             ($1, $2, $3, $4, $5, $6, $7,$8, $9)       
@@ -46,3 +46,58 @@ router.post("/", [limiter, checktoken], async function (req, res, next) {
 });
 
 export default router;
+
+/**
+ * @swagger
+ * /admin/addadmin:
+ *   post:
+ *     summary: Yangi admin qo'shish
+ *     description: Endpoint to register a new user with details like login, password, name, email, etc.
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               login:
+ *                 type: string
+ *                 minLength: 5
+ *                 maxLength: 15
+ *               password:
+ *                 type: string
+ *                 minLength: 7
+ *                 maxLength: 25
+ *               firstname:
+ *                 type: string
+ *                 minLength: 3
+ *                 maxLength: 15
+ *               lastname:
+ *                 type: string
+ *                 minLength: 3
+ *                 maxLength: 15
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 minLength: 3
+ *                 maxLength: 25
+ *               viloyat_id:
+ *                 type: integer
+ *                 minimum: 0
+ *                 maximum: 14
+ *               tuman_id:
+ *                 type: integer
+ *                 minimum: 15
+ *                 maximum: 225
+ *               active:
+ *                 type: boolean
+ *     responses:
+ *       200:
+ *         description: User registered successfully
+ *       400:
+ *         description: Validation error
+ *       401:
+ *         description: Unauthorized (Bearer token missing or invalid)
+ */

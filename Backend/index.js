@@ -6,19 +6,25 @@ import cookieParser from "cookie-parser";
 import swaggerUi  from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
 import {hashpassword} from "./functions/bcrypt.js"
+
+
+
+
 // Functions
 import pool from "./functions/database.js";
 
+
+
 global.pool = pool;
-(async ()=>{
+// (async ()=>{
     
-    try {
-        await global.pool.connect();
-        console.log("Ulanish hosil qilindi")
-    } catch (error) {
-        console.log(error)
-    }
-})()
+//     try {
+//         await global.pool.connect();
+//         console.log("Ulanish hosil qilindi")
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })()
 
 
 
@@ -36,19 +42,45 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./public"));
 
 // Swagger
+
 const swaggerOptions = {
   definition: {
-      openapi: '3.0.0',
-      info: {
-          title: 'Node.js API ',
-          version: '1.0.0',
-          description: 'Bu dokumentatsiya',
+    openapi: "3.0.0",
+    info: {
+      title: "My API",
+      version: "1.0.0",
+      description: "My API Information",
+    },
+    servers: [
+      {
+        url: "http://localhost:4100",
       },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
-  apis: ['./Routers/admin/login.js'], 
+  apis: ["./Routers/admin/login.js",
+        "./Routers/admin/CRUD Admin/add.js",
+        "./Routers/admin/CRUD Admin/checker.js",
+        
+  ],
 };
-const swaggerSpec = swaggerJSDoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 
 
