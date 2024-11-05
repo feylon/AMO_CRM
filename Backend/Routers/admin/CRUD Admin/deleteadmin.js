@@ -2,7 +2,6 @@ import Joi from "joi";
 import { Router } from "express";
 import { checktoken } from "../../../functions/jwtAdmin.js";
 import pool from "../../../functions/database.js";
-import { hashpassword } from "../../../functions/bcrypt.js";
 import { limiter } from "../../../functions/limiter.js";
 const router = Router();
 
@@ -10,7 +9,7 @@ const Schema = Joi.object({
     id : Joi.number().integer().min(0).required()}
 );
 
-router.delete("/:id", checktoken, async function (req, res, next) {
+router.delete("/:id", [limiter, checktoken], async function (req, res, next) {
     const check = Schema.validate(req.params);
     if(check.error) return res.status(400).send({error : check.error.message})
         const { id } = req.params;

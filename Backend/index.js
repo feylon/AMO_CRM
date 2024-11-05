@@ -73,7 +73,8 @@ const swaggerOptions = {
   apis: ["./Routers/admin/login.js",
         "./Routers/admin/CRUD Admin/add.js",
         "./Routers/admin/CRUD Admin/checker.js",
-        "./Routers/admin/CRUD Admin/deleteadmin.js"
+        "./Routers/admin/CRUD Admin/deleteadmin.js",
+        "./Routers/admin/CRUD Admin/get.js"
   ],
 };
 
