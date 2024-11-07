@@ -52,16 +52,20 @@
   <script setup>
   import { ref } from "vue";
   import { url } from "../../url";
-  const login = ref('');
-  const password = ref('');
+  import {useMessage} from "naive-ui";
+  import state from "../../state";
+  const admin = state();
+  console.log(admin.count)
+
+  const login = ref('jamshid14092002');
+  const password = ref('!Jamshid14092002');
   const loading = ref(false);
-  
+  const message = useMessage();
   const submit = async function () {
   
     try {
-      if(login.value.length < 3 || password.value < 3) {alert("Formani to'ldiring"); return;}
+      if(login.value.length < 3 || password.value < 3) {message.warning("Formani to'ldiring"); return;}
     loading.value = true;
-    console.log(login.value, password.value);
     let backend = await fetch(`${url}admin/login`, {
       method: "POST",
       headers: {
@@ -73,18 +77,20 @@
         password: password.value
       })
     })
-    console.log(backend.status)
+      login.value = '';
+      password.value = '';
     if (backend.status == 200) {
       backend = await backend.json();
       loading.value = false;
-      console.log(backend);
+      console.log(backend.token);
+      localStorage.setItem("token", backend.token);
       return;
     }
     if(backend.status == 401){
       loading.value = false;
       login.value = '';
       password.value = '';
-      alert("Parol yoki login xato");
+      message.error("Parol yoki login xato");
   
   }  } catch (error) {
       
