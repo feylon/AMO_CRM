@@ -44,3 +44,57 @@ logger.error('Error Details:', errorObject);
    }
 });
 export default router;
+
+/**
+ * @swagger
+ * /admin/profile:
+ *   get:
+ *     summary: Get admin information
+ *     description: Fetches detailed information about an admin based on their ID, including personal details and location.
+ *     tags:
+ *       - Admin Profili
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success - returns admin information
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 admin_login:
+ *                   type: string
+ *                   description: Admin login username
+ *                 admin_firstname:
+ *                   type: string
+ *                   description: Admin's first name
+ *                 admin_lastname:
+ *                   type: string
+ *                   description: Admin's last name
+ *                 admin_profil_url:
+ *                   type: string
+ *                   description: URL of the admin's profile image
+ *                 viloyat_uz:
+ *                   type: string
+ *                   description: Viloyat name in Uzbek
+ *                 viloyat_oz:
+ *                   type: string
+ *                   description: Viloyat name in Cyrillic Uzbek
+ *                 viloyat_ru:
+ *                   type: string
+ *                   description: Viloyat name in Russian
+ *                 tuman_uz:
+ *                   type: string
+ *                   description: Tuman name in Uzbek
+ *                 tuman_oz:
+ *                   type: string
+ *                   description: Tuman name in Cyrillic Uzbek
+ *                 tuman_ru:
+ *                   type: string
+ *                   description: Tuman name in Russian
+ *       401:
+ *         description: Unauthorized - JWT token missing or invalid
+ *       500:
+ *         description: Internal Server Error
+ */
