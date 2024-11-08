@@ -270,7 +270,7 @@ CREATE UNIQUE INDEX unique_email_active ON admin(email) WHERE (state = true);
 
 -- Insert first admin
 insert into admin (login, email, password) values 
-('jamshid14092002', 'jamshid14092002@gmail.com', '$2b$10$FfHyDJiiyC2ZUTULho4IJu86hNGkaXv4u/4uyx8exWqoGyFbmmr8O');
+('jamshid14092002', 'jamshid14092002@gmail.com', '$2b$10$qszd/we2sPerBlHoeUKageRfkVnM9T5LUndqxhgli3NmJdTHRhbOG');
 
 -- Error table
 Create table errors (
