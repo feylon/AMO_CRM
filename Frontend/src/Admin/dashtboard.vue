@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="flex flex-col justify-center ps-[10px]">
-                  <span class="text-[white] text-center">Ergashev Jamshid</span>
+                  <span class="text-[white] text-center">{{Adminprofile.admin_lastname}} {{Adminprofile.admin_firstname}}</span>
                   <span class="text-[white] text-center text-[10px]">Admin</span>
 
                 </div>
@@ -82,16 +82,35 @@
 
 <script setup>
 import { NAvatar, NText, useMessage } from "naive-ui";
-import { h } from "vue";
+import { h, onMounted } from "vue";
 import profile from "../components/profile.vue"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { ref } from "vue";
 import state from "../../state"
+import { url } from "../../url";
 
-
+let Adminprofile = ref({});
 const message = useMessage();
 const Admin = state();
-console.log(Admin.Profile)
+
+onMounted( async () => {
+  const token = localStorage.token;
+    let data = await fetch(`${url}admin/profile`,{
+      method : "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}` 
+      }
+    });
+   if(data.status == 200)
+    {data = await data.json();
+      Adminprofile.value = {...data};
+      
+    }
+    
+    
+});
+
 function renderCustomHeader() {
   return h(
     "div",
@@ -106,7 +125,7 @@ function renderCustomHeader() {
       }),
       h("div", null, [
         h("div", { class: 'font-bold' }, null, [
-          h(NText, { depth: 2 }, { default: () => "Ergashev Jamshid" })
+          h(NText, { depth: 2 }, { default: () => `${Adminprofile.value.admin_lastname} ${Adminprofile.value.admin_firstname} ` })
         ]),
         h("div", { style: "font-size: 12px; text-align:center" }, [
           h(NText, { depth: 3 }, { default: () => "Admin" })

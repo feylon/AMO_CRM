@@ -33,6 +33,8 @@ export default router;
  *   post:
  *     summary: Admin bor yo'qligini tekshirish
  *     description: Berilgan admin loginining ma'lumotlar bazasida mavjudligini tekshirish uchun endpoint.
+ *     tags:
+ *       - Subadminni boshqarish
  *     security:
  *       - bearerAuth: [] # Agar siz Bearer Token autentifikatsiyasidan foydalanayotgan bo'lsangiz
  *     requestBody:

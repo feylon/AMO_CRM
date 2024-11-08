@@ -75,7 +75,10 @@ const swaggerOptions = {
         "./Routers/admin/CRUD Admin/checker.js",
         "./Routers/admin/CRUD Admin/deleteadmin.js",
         "./Routers/admin/CRUD Admin/get.js",
-        "./Routers/admin/profile.js"
+        "./Routers/admin/profile.js",
+        // free regions
+
+        "./Routers/admin/free data/regions.js"
   ],
 };
 
@@ -83,9 +86,9 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-
-
-
+// Free router
+import regions from "./Routers/admin/free data/regions.js"
+app.use("/regions", regions);
 app.use((err, req, res, next) => {
     if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
       return res.status(400).json({
@@ -108,6 +111,6 @@ admin.forEach(item=>app.use(`/admin/${item.path}`, item.component))
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 
-let host = '192.168.199.9' || '192.168.20.102';
+let host = '10.10.11.93:51' || '192.168.20.102';
 const server = http.createServer(app)
 server.listen(PORT,  ()=>console.log(`Server is running:  ${host}:${process.env.PORT}` ));

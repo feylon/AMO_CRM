@@ -34,6 +34,8 @@ export default router;
  *   delete:
  *     summary: Delete an admin user
  *     description: Marks an admin user as deleted by setting the `state` to false.
+ *     tags:
+ *       - Subadminni boshqarish
  *     parameters:
  *       - name: id
  *         in: path

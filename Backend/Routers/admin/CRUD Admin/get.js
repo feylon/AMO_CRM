@@ -54,6 +54,8 @@ return;
  *   get:
  *     summary: Sahifalangan admin ma'lumotlarini olish
  *     description: Faol adminlarning umumiy soni bilan birga sahifalangan adminlar ro'yxatini olish.
+ *     tags:
+ *       - Subadminni boshqarish
  *     parameters:
  *       - name: page
  *         in: query

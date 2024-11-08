@@ -53,6 +53,8 @@ export default router;
  *   post:
  *     summary: Yangi admin qo'shish
  *     description: Endpoint to register a new user with details like login, password, name, email, etc.
+ *     tags:
+ *       - Subadminni boshqarish
  *     security:
  *       - bearerAuth: []
  *     requestBody:

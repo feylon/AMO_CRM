@@ -52,7 +52,9 @@ export default router;
  * @swagger
  * /admin/login:
  *   post:
- *     summary: Tizimga kirish uchun 
+ *     tags:
+ *       - Admin Profili
+ *     summary: Tizimga kirish uchun va tokenni olish uchun 
  *     requestBody:
  *       required: true
  *       content:
