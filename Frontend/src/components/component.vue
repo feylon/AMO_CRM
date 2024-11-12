@@ -32,7 +32,7 @@
     </div>
     <n-table :bordered="false" :single-line="false">
       <thead class="">
-        <tr>
+         <tr>
           <th>№</th>
           <th>
             <div class="w-[85px] justify-center flex text-center">F.I</div>
@@ -46,13 +46,13 @@
       </thead>
       <tbody>
 
-        <tr v-for="(i, j) in 8">
+        <tr v-for="(i, j) in data">
           <td>{{+ + j }}</td>
-          <td>Ergashev Jamshid</td>
-          <td> jamshid14092002</td>
-          <td>22.02.2022 15:51:54</td>
+          <td>{{i.lastname}} {{i.firstname}} </td>
+          <td> {{ i.login }}</td>
+          <td>{{i.lastseen}}</td>
           <td>
-            <n-switch v-model:value="check">
+            <n-switch v-model:value="i.active">
               <template #checked>
                 <font-awesome-icon :icon="['fas', 'unlock']" />
                 <span class="ms-1">Ochiq</span>
@@ -158,7 +158,8 @@ import { url } from '../../url';
 const page_count = ref(1)
 const check = ref(false);
 const page = ref(1);
-const all = ref(0)
+const all = ref(0);
+const data = ref([]);
 let showmodal = ref(false);
 let bodyStyle = {
   width: "600px"
@@ -171,20 +172,20 @@ let timestamp = ref(118313526e4)
 
 let backend = async function (page) {
   const token = localStorage.token;
-  let data = await fetch(`${url}admin/getadmin?page=1&size=10`, {
+  let backend = await fetch(`${url}admin/getadmin?page=1&size=10`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
     }
   });
-  if (data.status == 200) {
-    data = await data.json();
-    // Adminprofile.value = {...data};
-    console.log(data)
-    all.value = data[0].all;
-    page_count.value = Math.trunc(data[0].all / 10) + 1;
-    console.log();
+  if (backend.status == 200) {
+    data.value = ([]);
+    backend = await backend.json();
+     data.value = {...backend};
+    all.value = backend[0].all;
+    page_count.value = Math.trunc(backend[0].all / 10) + 1;
+    console.log(data.value);
 
   }
 }
